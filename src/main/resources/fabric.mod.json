@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "fastfurnace",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "FastFurnace",
+  "description": "Optimizations for the vanilla furnace",
   "authors": [
     "Tfarecnim"
   ],
@@ -18,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "tfar.example.ExampleMod"
+      "tfar.fastfurnace.FastFurnace"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "fastfurnace.mixins.json"
   ],
 
   "depends": {
