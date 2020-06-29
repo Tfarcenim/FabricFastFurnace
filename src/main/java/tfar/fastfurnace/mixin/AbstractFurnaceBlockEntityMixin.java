@@ -1,5 +1,6 @@
 package tfar.fastfurnace.mixin;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
@@ -56,7 +57,7 @@ class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityInter
 	}
 
 	@Inject(method = "fromTag", at = @At("RETURN"))
-	private void loadBurntime(CompoundTag tag, CallbackInfo cir) {
+	private void loadBurntime(BlockState state, CompoundTag tag, CallbackInfo ci) {
 		this.burnTime = tag.getInt("fabricBurnTime");
 	}
 
@@ -79,6 +80,5 @@ class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityInter
 	public void setFailedMatch(ItemStack stack) {
 		this.failedMatch = stack;
 	}
-
 
 }

@@ -23,7 +23,7 @@ public class Hooks {
 	}
 
 	public static Optional<? extends AbstractCookingRecipe> lookUpRecipe(AbstractFurnaceBlockEntity furnace, RecipeManager recipeManager, RecipeType<? extends AbstractCookingRecipe> recipeType) {
-		ItemStack input = furnace.getInvStack(0);
+		ItemStack input = furnace.getStack(0);
 		if (input.isEmpty() || input == ((AbstractFurnaceBlockEntityInterface) furnace).getFailedMatch())
 			return Optional.empty();
 
