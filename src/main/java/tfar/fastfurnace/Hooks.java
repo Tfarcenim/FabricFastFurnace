@@ -24,7 +24,7 @@ public class Hooks {
 
 	public static Optional<? extends AbstractCookingRecipe> lookUpRecipe(AbstractFurnaceBlockEntity furnace, RecipeManager recipeManager, RecipeType<? extends AbstractCookingRecipe> recipeType) {
 		ItemStack input = furnace.getStack(0);
-		if (input.isEmpty() || input == ((AbstractFurnaceBlockEntityInterface) furnace).getFailedMatch())
+		if (input.isEmpty() || input == ((Duck) furnace).getFailedMatch())
 			return Optional.empty();
 
 		if (curRecipe(furnace) != null && curRecipe(furnace).matches(furnace, furnace.getWorld()))
@@ -39,14 +39,14 @@ public class Hooks {
 	}
 
 	public static void setFailedMatch(AbstractFurnaceBlockEntity abstractFurnaceBlockEntity, ItemStack stack) {
-		((AbstractFurnaceBlockEntityInterface) abstractFurnaceBlockEntity).setFailedMatch(stack);
+		((Duck) abstractFurnaceBlockEntity).setFailedMatch(stack);
 	}
 
 	public static AbstractCookingRecipe curRecipe(AbstractFurnaceBlockEntity abstractFurnaceBlockEntity) {
-		return ((AbstractFurnaceBlockEntityInterface) abstractFurnaceBlockEntity).getRecipe();
+		return ((Duck) abstractFurnaceBlockEntity).getRecipe();
 	}
 
 	public static void setCurRecipe(AbstractFurnaceBlockEntity abstractFurnaceBlockEntity, AbstractCookingRecipe recipe) {
-		((AbstractFurnaceBlockEntityInterface) abstractFurnaceBlockEntity).setRecipe(recipe);
+		((Duck) abstractFurnaceBlockEntity).setRecipe(recipe);
 	}
 }

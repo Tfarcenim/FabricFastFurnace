@@ -4,7 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AbstractFurnaceBlockEntityMixin",
-    "RecipeManagerMixin"
+    "ServerResourceManagerMixin"
   ],
   "client": [
   ],

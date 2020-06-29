@@ -7,11 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,14 +17,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import tfar.fastfurnace.AbstractFurnaceBlockEntityInterface;
+import tfar.fastfurnace.Duck;
 import tfar.fastfurnace.Hooks;
 
 import java.util.Map;
 import java.util.Optional;
 
 @Mixin(AbstractFurnaceBlockEntity.class)
-class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityInterface {
+class AbstractFurnaceBlockEntityMixin implements Duck {
 
 	@Shadow
 	private int burnTime;
