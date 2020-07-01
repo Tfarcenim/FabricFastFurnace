@@ -11,6 +11,7 @@ import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -44,9 +45,9 @@ class AbstractFurnaceBlockEntityMixin implements Duck {
 		return Hooks.lookUpRecipe((AbstractFurnaceBlockEntity) (Object) this,recipeManager, type);
 	}
 
-	@Inject(method = "getCookTime", at = @At("HEAD"), cancellable = true)
-	private void cachedBurnTime(CallbackInfoReturnable<Integer> ci) {
-		ci.setReturnValue(cachedRecipe != null ? cachedRecipe.getCookTime() : 200);
+	@Overwrite
+	protected int getCookTime() {
+		return cachedRecipe != null ? cachedRecipe.getCookTime() : 200;
 	}
 
 	@Inject(method = "toTag", at = @At("RETURN"))
