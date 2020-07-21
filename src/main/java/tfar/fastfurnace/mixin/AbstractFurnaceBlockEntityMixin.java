@@ -1,6 +1,8 @@
 package tfar.fastfurnace.mixin;
 
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,12 +27,16 @@ import java.util.Map;
 import java.util.Optional;
 
 @Mixin(AbstractFurnaceBlockEntity.class)
-class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityInterface {
+class AbstractFurnaceBlockEntityMixin extends BlockEntity implements AbstractFurnaceBlockEntityInterface {
 
 	@Shadow
 	private int burnTime;
 	protected AbstractCookingRecipe cachedRecipe = null;
 	protected ItemStack failedMatch = ItemStack.EMPTY;
+
+	public AbstractFurnaceBlockEntityMixin(BlockEntityType<?> type) {
+		super(type);
+	}
 
 	@Inject(at = @At("HEAD"), method = "createFuelTimeMap", cancellable = true)
 	private static void rebuildFuelTimeMap(CallbackInfoReturnable<Map<Item, Integer>> ci) {

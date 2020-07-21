@@ -14,7 +14,7 @@ import java.util.Optional;
 public class Hooks {
 
 	public static Map<Item, Integer> fuelTimeMap = new HashMap<>();
-	public static boolean rebuild = false;
+	public static boolean rebuild = true;
 
 	public static void rebuildFuelMap() {
 		rebuild = true;
