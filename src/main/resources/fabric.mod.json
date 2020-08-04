@@ -25,10 +25,6 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.2",
-    "fabric": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "fabricloader": ">=0.7.2"
   }
 }

@@ -46,7 +46,7 @@ class AbstractFurnaceBlockEntityMixin implements Duck {
 	}
 
 	@Overwrite
-	protected int getCookTime() {
+	public int getCookTime() {
 		return cachedRecipe != null ? cachedRecipe.getCookTime() : 200;
 	}
 
