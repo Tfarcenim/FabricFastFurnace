@@ -30,5 +30,13 @@
   },
   "suggests": {
     "flamingo": "*"
+  },
+  
+  "custom": {
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 364540,
+      "strict": false
+    }
   }
 }
