@@ -16,4 +16,4 @@ These changes apply to the Furnace, Blast Furnace, and Smoker.  Mods should foll
 
 ## License
 
-This mod is under the MIT license.
+This mod is under [the MIT license](https://github.com/Tfarcenim/FabricFastFurnace/blob/1.16.x/LICENSE).
