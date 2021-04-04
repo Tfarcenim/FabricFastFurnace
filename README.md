@@ -16,4 +16,4 @@ These changes apply to the Furnace, Blast Furnace, and Smoker.  Mods should foll
 
 ## License
 
-This mod is under the CC0 license.
+This mod is under the MIT license.
