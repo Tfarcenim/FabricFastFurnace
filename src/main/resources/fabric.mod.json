@@ -28,8 +28,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.2",
-    "fabric": "*"
+    "fabricloader": ">=0.7.2"
   },
 
   "breaks": {
