@@ -6,25 +6,32 @@
   "name": "FastFurnace",
   "description": "Optimizations for the vanilla furnace",
   "authors": [
-    "Tfarecnim,ShadowsOfFire"
+    "Tfarecnim",
+    "ShadowsOfFire"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Tfarcenim/FabricFastFurnace",
+    "sources": "https://github.com/Tfarcenim/FabricFastFurnace",
+    "issues": "https://github.com/Tfarcenim/FabricFastFurnace/issues"
   },
 
   "license": "MIT",
-
+  "icon": "assets/fastfurnace/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
     ]
   },
+
   "mixins": [
     "fastfurnace.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.7.2"
+  },
+
+  "breaks": {
+    "fueltimecache": "*"
   }
 }

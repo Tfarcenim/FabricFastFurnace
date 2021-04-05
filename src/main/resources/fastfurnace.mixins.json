@@ -6,8 +6,6 @@
     "AbstractFurnaceBlockEntityMixin",
     "ServerResourceManagerMixin"
   ],
-  "client": [
-  ],
   "injectors": {
     "defaultRequire": 1
   }
