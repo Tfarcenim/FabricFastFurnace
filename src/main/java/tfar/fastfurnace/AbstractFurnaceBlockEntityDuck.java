@@ -1,10 +1,10 @@
 package tfar.fastfurnace;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.AbstractCookingRecipe;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 
 public interface AbstractFurnaceBlockEntityDuck {
-	AbstractCookingRecipe getRecipe();
+	AbstractCookingRecipe getCachedRecipe();
 	void setRecipe(AbstractCookingRecipe recipe);
 	ItemStack getFailedMatch();
 	void setFailedMatch(ItemStack stack);

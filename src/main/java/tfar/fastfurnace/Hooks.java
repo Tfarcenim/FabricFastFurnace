@@ -1,11 +1,12 @@
 package tfar.fastfurnace;
 
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.recipe.RecipeType;
+
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,19 +19,19 @@ public class Hooks {
 
 	public static void rebuildFuelMap() {
 		rebuild = true;
-		fuelTimeMap = AbstractFurnaceBlockEntity.createFuelTimeMap();
+		fuelTimeMap = AbstractFurnaceBlockEntity.getFuel();
 		rebuild = false;
 	}
 
 	public static Optional<? extends AbstractCookingRecipe> lookUpRecipe(AbstractFurnaceBlockEntity furnace, RecipeManager recipeManager, RecipeType<? extends AbstractCookingRecipe> recipeType) {
-		ItemStack input = furnace.getStack(0);
+		ItemStack input = furnace.getItem(0);
 		if (input.isEmpty() || input == ((AbstractFurnaceBlockEntityDuck) furnace).getFailedMatch())
 			return Optional.empty();
 
-		if (curRecipe(furnace) != null && curRecipe(furnace).matches(furnace, furnace.getWorld()))
+		if (curRecipe(furnace) != null && curRecipe(furnace).matches(furnace, furnace.getLevel()))
 			return Optional.of(curRecipe(furnace));
 		else {
-			AbstractCookingRecipe rec = recipeManager.getFirstMatch(recipeType, furnace, furnace.getWorld()).orElse(null);
+			AbstractCookingRecipe rec = recipeManager.getRecipeFor(recipeType, furnace, furnace.getLevel()).orElse(null);
 			if (rec == null) setFailedMatch(furnace, input);
 			else setFailedMatch(furnace, ItemStack.EMPTY);
 			setCurRecipe(furnace, rec);
@@ -43,7 +44,7 @@ public class Hooks {
 	}
 
 	public static AbstractCookingRecipe curRecipe(AbstractFurnaceBlockEntity abstractFurnaceBlockEntity) {
-		return ((AbstractFurnaceBlockEntityDuck) abstractFurnaceBlockEntity).getRecipe();
+		return ((AbstractFurnaceBlockEntityDuck) abstractFurnaceBlockEntity).getCachedRecipe();
 	}
 
 	public static void setCurRecipe(AbstractFurnaceBlockEntity abstractFurnaceBlockEntity, AbstractCookingRecipe recipe) {

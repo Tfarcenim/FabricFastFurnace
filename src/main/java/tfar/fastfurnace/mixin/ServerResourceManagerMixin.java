@@ -1,15 +1,15 @@
 package tfar.fastfurnace.mixin;
 
-import net.minecraft.resource.ServerResourceManager;
+import net.minecraft.server.ServerResources;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tfar.fastfurnace.Hooks;
 
-@Mixin(ServerResourceManager.class)
+@Mixin(ServerResources.class)
 class ServerResourceManagerMixin {
-	@Inject(method = "loadRegistryTags",at = @At("RETURN"))
+	@Inject(method = "updateGlobals",at = @At("RETURN"))
 	private void rebuildFuelMap(CallbackInfo ci){
 		Hooks.rebuildFuelMap();
 	}
