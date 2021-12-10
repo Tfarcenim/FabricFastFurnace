@@ -54,9 +54,9 @@ class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityDuck 
         return furnace.getCachedRecipe() != null ? furnace.getCachedRecipe().getCookingTime() : 200;
     }
 
-    @Inject(method = "save", at = @At("RETURN"))
-    private void saveBurntime(CompoundTag tag, CallbackInfoReturnable<CompoundTag> cir) {
-        cir.getReturnValue().putInt("fabricBurnTime", this.litTime);
+    @Inject(method = "saveAdditional", at = @At("RETURN"))
+    private void saveBurntime(CompoundTag compoundTag, CallbackInfo ci) {
+       compoundTag.putInt("fabricBurnTime", this.litTime);
     }
 
     @Inject(method = "load", at = @At("RETURN"))
