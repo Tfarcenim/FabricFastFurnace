@@ -56,12 +56,12 @@ class AbstractFurnaceBlockEntityMixin implements AbstractFurnaceBlockEntityDuck 
 
     @Inject(method = "saveAdditional", at = @At("RETURN"))
     private void saveBurntime(CompoundTag compoundTag, CallbackInfo ci) {
-       compoundTag.putInt("fabricBurnTime", this.litTime);
+       compoundTag.putInt(Hooks.FABRIC_BURN_TIME, this.litTime);
     }
 
     @Inject(method = "load", at = @At("RETURN"))
     private void loadBurntime(CompoundTag tag, CallbackInfo ci) {
-        this.litTime = tag.getInt("fabricBurnTime");
+        this.litTime = tag.getInt(Hooks.FABRIC_BURN_TIME);
     }
 
     @Override

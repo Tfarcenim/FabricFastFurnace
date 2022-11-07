@@ -14,6 +14,7 @@ import java.util.Optional;
 
 public class Hooks {
 
+	public static final String FABRIC_BURN_TIME = "fabricBurnTime";
 	public static Map<Item, Integer> fuelTimeMap = new HashMap<>();
 	public static boolean rebuild = true;
 
